@@ -7,8 +7,8 @@ function View() {
     const [year, setYear] = useState("")
     const [launch, setlaunch] = useState("")
     const [land, setland] = useState("")
-    const [getLaunghVal,setGetLaunchVal] = useState("")
-    const [getLandVal,setGetLandVal] = useState("")
+    const [getLaunghVal, setGetLaunchVal] = useState("")
+    const [getLandVal, setGetLandVal] = useState("")
 
     useEffect(() => {
         getData();
@@ -30,7 +30,7 @@ function View() {
         axios.get(`https://api.spacexdata.com/v3/launches?limit=100&launch_success=${lau}&land_success=${lan}&launch_year=${year}`)
             .then(function (response) {
                 setArr(response.data)
-                window.history.pushState({}, null,`${year ?"/"+year:""}${lau?"/"+lau:""}${lan?"/"+lan:""}`);
+                window.history.pushState({}, null, `${year ? "/" + year : ""}${lau ? "/" + lau : ""}${lan ? "/" + lan : ""}`);
             })
             .catch(function (error) {
                 console.log(error);
@@ -43,13 +43,13 @@ function View() {
         filterData(year, launch, land)
     }
 
-    const launching = (res,e) => {
+    const launching = (res, e) => {
         setGetLaunchVal(e.target.outerText)
         setlaunch(res)
         filterData(year, res, land)
     }
 
-    const landing = (res,e) => {
+    const landing = (res, e) => {
         setGetLandVal(e.target.outerText)
         setland(res)
         filterData(year, launch, res)
@@ -67,22 +67,22 @@ function View() {
                     <p>Filters</p>
                     <p className="text-center" style={{ fontSize: 12 + "px" }}>Launch Year</p>
                     <hr className="m-0" />
-                    <Years getYear={getYear}/>
+                    <Years getYear={getYear} />
 
 
                     <div>
                         <p className="text-center" style={{ fontSize: 12 + "px" }}>Successful Launch</p>
                         <hr className="mb-2" />
-                        <span className={`text-center yearlist px-2 ${getLaunghVal == "True" ? "newColor":""}`} onClick={(e) => launching(true,e)}>True</span>
-                        <span className={`text-center yearlist float-right px-2 ${getLaunghVal == "False" ? "newColor":""}`} onClick={(e) => launching(false,e)}>False</span>
+                        <span className={`text-center yearlist px-2 ${getLaunghVal == "True" ? "newColor" : ""}`} onClick={(e) => launching(true, e)}>True</span>
+                        <span className={`text-center yearlist float-right px-2 ${getLaunghVal == "False" ? "newColor" : ""}`} onClick={(e) => launching(false, e)}>False</span>
                     </div>
 
 
                     <div>
                         <p className="text-center mt-2" style={{ fontSize: 12 + "px" }}>Successful Landing</p>
                         <hr className="mb-2" />
-                        <span className={`text-center yearlist px-2 ${getLandVal == "True" ? "newColor":""}`} onClick={(e) => landing(true,e)}>True</span>
-                        <span className={`text-center yearlist float-right px-2 ${getLandVal == "False" ? "newColor":""}`} onClick={(e) => landing(false,e)}>False</span>
+                        <span className={`text-center yearlist px-2 ${getLandVal == "True" ? "newColor" : ""}`} onClick={(e) => landing(true, e)}>True</span>
+                        <span className={`text-center yearlist float-right px-2 ${getLandVal == "False" ? "newColor" : ""}`} onClick={(e) => landing(false, e)}>False</span>
                     </div>
 
 
@@ -93,6 +93,7 @@ function View() {
                     </div>
                 </div>
             </div>
+            <p className="text-center">Developed By : Tuhin Roy</p>
         </div>
     )
 }
