@@ -11,3 +11,14 @@
 .newColor {
     background-color: #6cc46c !important;
 }
+
+.container-fluid {
+    background-color: #eeeaea;
+}
+
+.img-container {
+    width: 95%;
+    height: 180px;
+    background-color: #eeeaea;
+    margin: 5px auto;
+}

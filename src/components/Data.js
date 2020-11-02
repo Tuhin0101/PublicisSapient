@@ -9,9 +9,11 @@ function Data(props) {
                     return (
                         <div className="col-xl-3 col-md-6 col-12 my-2" key={el.flight_number}>
                             <div className="card">
-                                <img src="http://placehold.jp/200x200.png" className="card-img-top w-100 img-fluid" alt="..." />
+                            <div className="img-container">
+                                <img src={el && el.links && el.links.mission_patch_small} className="card-img-top w-100 img-fluid" alt="..." />
+                                </div>
                                 <div className="card-body">
-                                    <p className="card-text font-weight-bold">{el.mission_name}</p>
+                                    <p className="card-text font-weight-bold" style={{color:"blue"}}>{el.mission_name}</p>
                                     <p className="font-weight-bold">Mission Ids:</p>
                                     <ul>
                                         {

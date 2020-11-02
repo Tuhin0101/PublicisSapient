@@ -8,7 +8,6 @@ function App() {
       <BrowserRouter>
           <Switch>
             <View exact path="/"/>
-            <View exact path="/:id/:id/:id" />
             </Switch>
             </BrowserRouter>
     </div>
