@@ -26,7 +26,7 @@ function Data(props) {
                                     </ul>
                                     <p><span className="font-weight-bold">Launch Year:</span> {el.launch_year}</p>
                                     <p><span className="font-weight-bold">Successful Launch:</span> {el.launch_success == true ? "True" : "False"}</p>
-                                    <p><span className="font-weight-bold">Successful Landing:</span> {el && el.rocket && el.rocket.first_stage && el.rocket.first_stage.cores && el.rocket.first_stage.cores[0] && el.rocket.first_stage.cores[0].land_success == true ? "True" : "False"}</p>
+                                    <p><span className="font-weight-bold">Successful Landing:</span> {el && el.rocket && el.rocket.first_stage && el.rocket.first_stage.cores && el.rocket.first_stage.cores[0] && el.rocket.first_stage.cores[0].land_success == true ? "True" : el.rocket.first_stage.cores[0].land_success == null? "":"False"}</p>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,10 @@ const {getYear} = props
 const [year,setYear] = useState()
 const [yearList,setYearList] = useState(["2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020",])
     
-const select=(year)=>{
+const select=(yr)=>{
+    if(year==yr){
+        setYear("")
+    }
     setYear(year)
 }
 

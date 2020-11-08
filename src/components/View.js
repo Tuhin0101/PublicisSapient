@@ -6,7 +6,7 @@ import Loader from 'react-loader';
 
 function View() {
     const [arr, setArr] = useState([])
-    const [year, setYear] = useState("")
+    const [selectedyear, setYear] = useState("")
     const [launch, setlaunch] = useState("")
     const [land, setland] = useState("")
     const [getLaunghVal, setGetLaunchVal] = useState("")
@@ -51,19 +51,24 @@ function View() {
     }
 
 
-    const getYear = (year) => {
-        setYear(year)
-        filterData(year, launch, land)
+    const getYear = (yr) => {
+        if(selectedyear == yr){
+            setYear("")
+            filterData(yr="", launch, land)
+        }
+        else{
+            setYear(yr) 
+        filterData(yr, launch, land)
+        }
     }
 
     const launching = (res, e) => {
         if (getLaunghVal == e.target.outerText) {
             setGetLaunchVal("")
-            filterData(year, res = "", land)
+            filterData(selectedyear, res = "", land)
         } else {
-            setGetLaunchVal("")
             setGetLaunchVal(e.target.outerText)
-            filterData(year, res, land)
+            filterData(selectedyear, res, land)
         }
         setlaunch(res)
     }
@@ -71,11 +76,10 @@ function View() {
     const landing = (res, e) => {
         if (getLandVal == e.target.outerText) {
             setGetLandVal("")
-            filterData(year, launch, res = "")
+            filterData(selectedyear, launch, res = "")
         } else {
-            setGetLandVal("")
             setGetLandVal(e.target.outerText)
-            filterData(year, launch, res)
+            filterData(selectedyear, launch, res)
         }
         setland(res)
     }
