@@ -5,7 +5,7 @@ function Data(props) {
     return (
         <>
             {
-                arr && arr.map((el, i) => {
+                arr && arr.length >0 ? arr.map((el, i) => {
                     return (
                         <div className="col-xl-3 col-md-6 col-12 my-2" key={el.flight_number}>
                             <div className="card">
@@ -26,12 +26,16 @@ function Data(props) {
                                     </ul>
                                     <p><span className="font-weight-bold">Launch Year:</span> {el.launch_year}</p>
                                     <p><span className="font-weight-bold">Successful Launch:</span> {el.launch_success == true ? "True" : "False"}</p>
-                                    <p><span className="font-weight-bold">Successful Landing:</span> {el.launch_landing && el.launch_landing == true ? "True" : "False"}</p>
+                                    <p><span className="font-weight-bold">Successful Landing:</span> {el && el.rocket && el.rocket.first_stage && el.rocket.first_stage.cores && el.rocket.first_stage.cores[0] && el.rocket.first_stage.cores[0].land_success == true ? "True" : "False"}</p>
                                 </div>
                             </div>
                         </div>
                     )
                 })
+                :
+                <>
+                <p className="w-100 d-flex justify-content-center align-items-center h-100">No SpaceEX program found!!!</p>
+                </>
             }
         </>
     )

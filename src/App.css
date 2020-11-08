@@ -8,6 +8,10 @@
     -o-border-radius: 5px;
 }
 
+.yearlist:hover {
+    background-color: #6cc46c !important;
+}
+
 .newColor {
     background-color: #6cc46c !important;
 }
@@ -17,8 +21,12 @@
 }
 
 .img-container {
+    padding: 5%;
     width: 95%;
-    height: 180px;
     background-color: #eeeaea;
     margin: 5px auto;
+}
+
+.loadedContent {
+    height: 100%;
 }
